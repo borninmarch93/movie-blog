@@ -1,0 +1,6 @@
+.blog {
+    height: 100%;
+    @include e(title) {
+        width: 100%;
+    }
+}

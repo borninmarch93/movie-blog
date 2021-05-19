@@ -1,0 +1,27 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+.main-container {
+    height: calc(100% - 100px);
+    max-width: 1920px;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem;
+    box-sizing: border-box;
+    background-color: $SECONDARY_COLOR;
+}
