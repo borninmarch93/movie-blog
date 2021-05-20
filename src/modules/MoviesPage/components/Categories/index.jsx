@@ -1,8 +1,8 @@
 import Grid from "../../../../components/Grid";
 import axios from "axios";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-const Categories = () => {
+const Categories = ({ onSelect }) => {
     const [categories, setCategories] = useState([]);
 
     useEffect(async () => {
@@ -15,12 +15,16 @@ const Categories = () => {
         return categoryResponse.data;
     }
 
+    const clickCategoryHandler = (id) => {
+        onSelect(id);
+    }
+
     return (
         <div className="categories">
             <Grid row className="categories__items">
                 <ul>
                     {categories.map(category => {
-                        return <a><li className="category" key={category.id}>{category.name}</li></a>
+                        return <a onClick={() => clickCategoryHandler(category.id)}><li className="category" key={category.id}>{category.name}</li></a>
                     })}
                 </ul>
             </Grid>

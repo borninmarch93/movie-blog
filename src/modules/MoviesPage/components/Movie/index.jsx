@@ -2,7 +2,7 @@ import Grid from "../../../../components/Grid";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const MovieList = () => {
+const MovieList = ({ category }) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(async () => {
@@ -15,13 +15,18 @@ const MovieList = () => {
         return moviesResponse.data;
     }
 
+    const filterByCategory = (movie) => {
+        if (!category) return true;
+        return String(movie.categoryId) === category;
+    }
+
     return (
         <Grid row={true} className="blog__posts">
-            {movies.map(movie => {
+            {movies.filter(filterByCategory).map(movie => {
                 return (
                     <Grid className="movie__container" column={true} lg={3}>
                         <div className="movie">
-                            <a href="/"><img src={movie.imageUrl} /></a>
+                            <a href="/"><img alt="movie" src={movie.imageUrl} /></a>
                             <h5>{movie.name}</h5>
                             <p>{movie.description}</p>
                         </div>
