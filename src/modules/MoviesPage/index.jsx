@@ -1,6 +1,7 @@
 import withLayout from "../../components/Layout/withLayout";
 import Grid from "../../components/Grid";
-import Categories from "../../components/Categories";
+import Categories from "./components/Categories";
+import MovieList from "./components/Movie";
 
 const MoviesPage = () => {
     return (
@@ -9,11 +10,7 @@ const MoviesPage = () => {
                 <h2>Movie Collection</h2>
             </Grid>
             <Categories />
-            <Grid row={true}>
-                <Grid column={true}>
-                    Blog post
-                </Grid>
-            </Grid>
+            <MovieList />
         </Grid>
     )
 }

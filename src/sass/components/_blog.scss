@@ -1,6 +1,12 @@
 .blog {
     height: 100%;
     @include e(title) {
+        color: white;
         width: 100%;
+    }
+    @include e(posts) {
+        & > :first-child {
+            order: 2;
+        }
     }
 }

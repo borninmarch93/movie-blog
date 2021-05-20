@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import MoviesPage from "./pages/MoviesPage";
+import MoviesPage from "./modules/MoviesPage";
 
 function App() {
     return (
