@@ -1,0 +1,15 @@
+.btn {
+    border: none;
+    padding: 5px 16px;
+    height: 40px;
+    width: fit-content;
+    @include m(round) {
+        border-radius: 20px;
+    }
+    @include m(primary) {
+        background-color: #F86D4E;
+        text-transform: capitalize;
+        color: white;
+        font-weight: bold;
+    }
+}

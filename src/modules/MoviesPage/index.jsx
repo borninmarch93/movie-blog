@@ -1,7 +1,7 @@
 import withLayout from "../../components/Layout/withLayout";
 import Grid from "../../components/Grid";
 import Categories from "./components/Categories";
-import MovieList from "./components/Movie";
+import MovieList from "./components/MovieList";
 import { useState } from "react";
 
 const MoviesPage = () => {
