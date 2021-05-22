@@ -25,7 +25,7 @@ const MovieList = ({ category }) => {
                     <Grid key={movie.id} className="movie__container" column={true} lg={3}>
                         <div className="movie">
                             <Link to={`/movies/${movie.id}`}><img alt="movie" src={movie.imageUrl} /></Link>
-                            <h5>{movie.name}</h5>
+                            <h4>{movie.name}</h4>
                             <p className="movie__description-overview">{movie.description}</p>
                         </div>
                     </Grid>

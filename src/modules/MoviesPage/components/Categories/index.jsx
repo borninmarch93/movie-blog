@@ -2,9 +2,11 @@ import Grid from "../../../../components/Grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 const Categories = ({ onSelect }) => {
     const [categories, setCategories] = useState([]);
+    const [selected, setSelected] = useState(0);
 
     useEffect(async () => {
         const response = await getCategories();
@@ -18,16 +20,26 @@ const Categories = ({ onSelect }) => {
 
     const clickCategoryHandler = (id) => {
         onSelect(id);
+        setSelected(id);
     }
+
+    const getCategoryClass = (id) => {
+        return classNames(
+            'category',
+            selected === id && 'active'
+        )
+    }
+
+
 
     return (
         <div className="categories">
             <Grid row className="categories__items">
                 <ul>
-                    <Link onClick={() => clickCategoryHandler('all')}><li className="category">ALL</li></Link>
+                    <Link onClick={() => clickCategoryHandler(0)}><li className={getCategoryClass(0)}>ALL</li></Link>
                     {categories.map(category => {
                         return <Link key={category.id} onClick={() => clickCategoryHandler(category.id)}>
-                            <li className="category" key={category.id}>{category.name}</li>
+                            <li className={getCategoryClass(category.id)} key={category.id}>{category.name}</li>
                         </Link>
                     })}
                 </ul>

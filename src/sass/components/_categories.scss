@@ -1,17 +1,20 @@
 .categories {
-  margin: 3rem 3rem 5rem;
-  width: 100%;
-  @include e(items) {
-    ul {
-      display: flex;
-      justify-content: space-evenly;
-      width: 100%;
+    margin: 3rem 3rem 5rem;
+    width: 100%;
+    @include e(items) {
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+        }
     }
-  }
 }
 
 .category {
-  color: #57636F;
-  cursor: pointer;
-  text-transform: uppercase;
+    color: #57636F;
+    cursor: pointer;
+    text-transform: uppercase;
+    &.active {
+        color: white;
+    }
 }

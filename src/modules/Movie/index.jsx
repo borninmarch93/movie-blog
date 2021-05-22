@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import Button from "../../components/Button";
 import { useAuth0 } from "@auth0/auth0-react";
-import { fetchMovie, fetchMovieComments } from "../../services";
+import { fetchMovie, fetchMovieComments, fetchMovieTrailer } from "../../services";
+import YoutubeTrailer from "../../components/YoutubeTrailer";
 
 const MoviePage = ({match}) => {
     const [movie, setMovie] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState({ text: '', textLength: ''});
     const [error, setError] = useState({});
+    const [trailer, setTrailer] = useState();
 
     useEffect(async () => {
         const movieId = match.params.movieId;
@@ -21,6 +23,14 @@ const MoviePage = ({match}) => {
         setMovie(response);
         setComments(commentsResponse);
     }, []);
+
+    useEffect(async () => {
+        if (!movie.imdbId) {
+            return;
+        }
+        const response = await fetchMovieTrailer(movie.imdbId);
+        setTrailer(response);
+    }, [movie]);
 
     const { isAuthenticated, loginWithRedirect } = useAuth0();
 
@@ -107,6 +117,9 @@ const MoviePage = ({match}) => {
                                 shape="round">Add comment
                             </Button>
                         </div>
+                        {trailer &&
+                            <YoutubeTrailer src={trailer.linkEmbed} />
+                        }
                     </div>
                 </Grid>
             </Grid>
