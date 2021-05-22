@@ -1,17 +1,27 @@
 .categories {
+    @media (max-width: 425px) {
+        margin: 2rem 0 4rem;
+    }
     margin: 3rem 3rem 5rem;
     width: 100%;
     @include e(items) {
         ul {
+            @media (max-width: 425px) {
+                flex-flow: nowrap;
+                justify-content: flex-start;
+                flex-direction: column;
+            }
             display: flex;
             justify-content: space-evenly;
             width: 100%;
+            flex-flow: wrap;
         }
     }
 }
 
 .category {
     color: #57636F;
+    padding: 10px 20px;
     cursor: pointer;
     text-transform: uppercase;
     &.active {

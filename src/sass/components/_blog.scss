@@ -5,6 +5,9 @@
         width: 100%;
     }
     @include e(posts) {
+        @media (max-width: 420px) {
+            display: block !important;
+        }
         width: 100%;
         justify-content: flex-start;
         & > :first-child {

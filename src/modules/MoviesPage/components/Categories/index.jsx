@@ -30,17 +30,15 @@ const Categories = ({ onSelect }) => {
         )
     }
 
-
-
     return (
         <div className="categories">
             <Grid row className="categories__items">
                 <ul>
-                    <Link onClick={() => clickCategoryHandler(0)}><li className={getCategoryClass(0)}>ALL</li></Link>
+                    <a href="#" onClick={() => clickCategoryHandler(0)}><li className={getCategoryClass(0)}>ALL</li></a>
                     {categories.map(category => {
-                        return <Link key={category.id} onClick={() => clickCategoryHandler(category.id)}>
+                        return <a href="#" key={category.id} onClick={() => clickCategoryHandler(category.id)}>
                             <li className={getCategoryClass(category.id)} key={category.id}>{category.name}</li>
-                        </Link>
+                        </a>
                     })}
                 </ul>
             </Grid>

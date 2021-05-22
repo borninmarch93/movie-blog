@@ -50,3 +50,9 @@
         width: 300px;
     }
 }
+
+@media (max-width: 1024px) {
+    .video-responsive {
+        display: none;
+    }
+}

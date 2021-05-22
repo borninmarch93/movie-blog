@@ -83,12 +83,12 @@ const MoviePage = ({match}) => {
     return (
         <Grid row={true} className="container blog">
             <Grid row={true} className="movie-page">
-                <Grid column={true} lg={3}>
+                <Grid column={true} lg={3} md={3} sm={12}>
                     <div className="movie">
                         <img alt="movie" src={movie.imageUrl}/>
                     </div>
                 </Grid>
-                <Grid column={true} lg={7} className="movie__description">
+                <Grid column={true} lg={7} md={7} sm={12} xs={12} className="movie__description">
                     <h2>{movie.name}</h2>
                     <p>{movie.description}</p>
                     <div className="comments">
