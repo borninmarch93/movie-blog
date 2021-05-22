@@ -3,16 +3,14 @@ import MoviesPage from "./modules/MoviesPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MoviePage from "./modules/Movie";
 
-function App() {
+const App = () => {
     return (
-        <div >
-            <Router>
-                <Switch>
-                    <Route path="/" exact component={MoviesPage}/>
-                    <Route path="/movies/:movieId" component={MoviePage}/>
-                </Switch>
-            </Router>
-        </div>
+        <Router>
+            <Switch>
+                <Route path="/" exact component={MoviesPage}/>
+                <Route path="/movies/:movieId" component={MoviePage}/>
+            </Switch>
+        </Router>
     );
 }
 

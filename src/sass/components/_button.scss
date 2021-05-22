@@ -1,5 +1,6 @@
 .btn {
     border: none;
+    cursor: pointer;
     padding: 5px 16px;
     height: 40px;
     width: fit-content;
@@ -11,5 +12,13 @@
         text-transform: capitalize;
         color: white;
         font-weight: bold;
+    }
+    @include m(secondary) {
+        background-color: #21E18C;
+        font-weight: bold;
+        width: 100px;
+    }
+    @include m(login) {
+        justify-content: flex-end;
     }
 }

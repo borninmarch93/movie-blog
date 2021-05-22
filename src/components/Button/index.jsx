@@ -1,14 +1,15 @@
 import classNames from "classnames";
 
-const Button = ({ children, variant, shape, type }) => {
+const Button = ({ onClick, id, variant, shape, type, children }) => {
 
     const classes = classNames(
         'btn',
         shape === 'round' && 'btn--round',
-        variant === 'primary' && 'btn--primary'
+        variant === 'primary' && 'btn--primary',
+        variant === 'secondary' && 'btn--secondary'
     )
     return (
-        <button className={classes} type={type}>
+        <button id={id} onClick={onClick} className={classes} type={type}>
             {children}
         </button>
     )

@@ -5,6 +5,8 @@
         width: 100%;
     }
     @include e(posts) {
+        width: 100%;
+        justify-content: flex-start;
         & > :first-child {
             order: 2;
         }

@@ -1,6 +1,7 @@
 import Grid from "../../../../components/Grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Categories = ({ onSelect }) => {
     const [categories, setCategories] = useState([]);
@@ -23,8 +24,11 @@ const Categories = ({ onSelect }) => {
         <div className="categories">
             <Grid row className="categories__items">
                 <ul>
+                    <Link onClick={() => clickCategoryHandler('all')}><li className="category">ALL</li></Link>
                     {categories.map(category => {
-                        return <a onClick={() => clickCategoryHandler(category.id)}><li className="category" key={category.id}>{category.name}</li></a>
+                        return <Link key={category.id} onClick={() => clickCategoryHandler(category.id)}>
+                            <li className="category" key={category.id}>{category.name}</li>
+                        </Link>
                     })}
                 </ul>
             </Grid>

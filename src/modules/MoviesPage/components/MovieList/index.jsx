@@ -1,23 +1,20 @@
 import Grid from "../../../../components/Grid";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { fetchMovies } from "../../../../services";
 
 const MovieList = ({ category }) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(async () => {
-        const response = await fetchMovies();
-        setMovies(response);
+        setMovies(await fetchMovies());
     }, []);
-
-    const fetchMovies = async () => {
-        const moviesResponse = await axios.get('https://5fe8885b2e12ee0017ab47c0.mockapi.io/api/v1/movies');
-        return moviesResponse.data;
-    }
 
     const filterByCategory = (movie) => {
         if (!category) return true;
+        if (category === 'all') {
+            return movies;
+        }
         return String(movie.categoryId) === category;
     }
 
