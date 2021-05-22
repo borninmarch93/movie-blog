@@ -5,7 +5,7 @@ import LogoutButton from "../../Auth/LogoutButton";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-    const { isAuthenticated } = useAuth0();
+    const { isAuthenticated, user } = useAuth0();
 
     return (
         <Grid row={true} className="header">
@@ -13,7 +13,11 @@ const Header = () => {
                 <Link to="/"><h1>Mov.</h1></Link>
             </Grid>
             <Grid column={true} lg={10} className="btn--login">
-                {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+                <div className="header__login-info">
+                    {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+                    {isAuthenticated && <span>{user.name}</span>}
+                </div>
+
             </Grid>
         </Grid>
     )
